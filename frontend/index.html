@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AirHealth - Login</title>
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -11,9 +11,7 @@
   <div class="login-background"></div>
 
   <div class="login-wrapper">
-    <div class="brand">
-      <h1>AirHealth Portal</h1>
-    </div>
+    <div class="brand"><h1>AirHealth Portal</h1></div>
 
     <div class="toggle-switch">
       <button id="signin-toggle" class="toggle-btn active" onclick="showSignin()">Sign In</button>
@@ -22,37 +20,40 @@
     </div>
 
     <!-- Sign In -->
-    <form id="signin-form" class="auth-form">
-      <label>Email</label>
-      <input type="email" placeholder="Enter email" required>
-      <label>Password</label>
-      <input type="password" placeholder="Enter password" required>
+    <form id="signin-form" class="auth-form" style="display:grid;">
+      <label for="signin-email">Email</label>
+      <input type="email" id="signin-email" required>
+      <label for="signin-password">Password</label>
+      <input type="password" id="signin-password" required>
       <button type="submit" class="btn primary">Sign In</button>
     </form>
 
     <!-- Sign Up -->
     <form id="signup-form" class="auth-form" style="display:none;">
-      <label>Email</label>
-      <input type="email" placeholder="Enter email" required>
+      <label for="signup-email">Email</label>
+      <input type="email" id="signup-email" required>
 
-      <label>Password</label>
-      <input type="password" placeholder="Create password" required>
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" required>
 
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password" required>
+      <label for="signup-confirm-password">Confirm Password</label>
+      <input type="password" id="signup-confirm-password" required>
 
-      <label>Full Name</label>
-      <input type="text" placeholder="Your full name" required>
+      <label for="signup-name">Full Name</label>
+      <input type="text" id="signup-name" required>
 
-      <label>Age</label>
-      <input type="number" placeholder="Your age" required>
+      <label for="signup-age">Age</label>
+      <input type="number" id="signup-age" required>
 
-      <label>Do you have Asthma?</label>
+      <label for="asthma-select">Do you have Asthma?</label>
       <select id="asthma-select" required>
         <option value="">Select</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" required>
 
       <button type="submit" class="btn primary">Sign Up</button>
     </form>

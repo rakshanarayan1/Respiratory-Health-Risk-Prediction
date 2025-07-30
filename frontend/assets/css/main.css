@@ -274,3 +274,95 @@ input[type=number] {
   max-height: 90vh;
   overflow-y: auto;
 }
+/* === Dashboard Health Parameter Cards & Risk Status Enhancements === */
+.health-card {
+  background: #f0f7ff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.health-card label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #333333;
+}
+
+.health-card input[type="number"],
+.health-card select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.health-card input[type="number"]:focus,
+.health-card select:focus {
+  border-color: #1d72b8;
+  outline: none;
+  box-shadow: 0 0 5px rgba(29, 114, 184, 0.5);
+}
+
+.risk-status {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.status-good {
+  background-color: #4caf50; /* Green */
+}
+
+.status-warning {
+  background-color: #ff9800; /* Orange */
+}
+
+.status-danger {
+  background-color: #f44336; /* Red */
+}
+
+button.btn.primary {
+  background-color: #1d72b8;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.btn.primary:hover {
+  background-color: #155d8b;
+}
+
+.container {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 480px) {
+  .health-card {
+    padding: 0.75rem 1rem;
+  }
+
+  button.btn.primary {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+}
+/* === End of Dashboard Enhancements === */

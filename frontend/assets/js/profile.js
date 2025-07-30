@@ -5,18 +5,18 @@ document.getElementById('pName').value = profile.name || '';
 document.getElementById('pEmail').value = profile.email || '';
 document.getElementById('pAge').value = profile.age || '';
 document.getElementById('pAsthma').value = profile.asthma || 'no';
+document.getElementById('pLocation').value = profile.location || '';
 
-// Save updated profile
-document.getElementById('profile-form').addEventListener('submit', function (e) {
+document.getElementById('profile-form').addEventListener('submit', function(e) {
   e.preventDefault();
-
   const updatedProfile = {
     ...profile,
     name: document.getElementById('pName').value,
     age: document.getElementById('pAge').value,
-    asthma: document.getElementById('pAsthma').value
+    asthma: document.getElementById('pAsthma').value,
+    location: document.getElementById('pLocation').value
   };
-
   localStorage.setItem('airhealthProfile', JSON.stringify(updatedProfile));
   alert("Profile updated successfully!");
 });
+
