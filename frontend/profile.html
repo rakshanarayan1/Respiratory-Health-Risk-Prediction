@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <div class="top-nav">
+    <div class="logo">AirHealth</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="profile.html" class="active">Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="content-wrapper">
+    <h1>My Profile</h1>
+    <form id="profile-form">
+      <label>Full Name</label>
+      <input type="text" id="pName">
+
+      <label>Email</label>
+      <input type="email" id="pEmail" disabled>
+
+      <label>Age</label>
+      <input type="number" id="pAge">
+
+      <label>Asthma</label>
+      <select id="pAsthma">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <button type="submit" class="btn primary" style="margin-top:1rem;">Save Changes</button>
+    </form>
+  </div>
+
+  <script src="assets/js/profile.js"></script>
+</body>
+</html>

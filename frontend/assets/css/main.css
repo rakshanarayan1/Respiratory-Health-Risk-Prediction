@@ -1,0 +1,276 @@
+/* ─── VARIABLES ───────────────────────────────────────────────────────────────── */
+:root {
+  --dark:   #0A2342;
+  --light:  #3E92CC;
+  --white:  #FFFFFF;
+  --gray:   #F0F4FF;
+}
+
+/* ─── RESET & GLOBAL ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ─── BUTTON ───────────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn.primary {
+  background: var(--light);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: .75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ─── NAVBAR ───────────────────────────────────────────────────────────────────── */
+.top-nav {
+  background: var(--dark);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: .4rem .8rem;
+  border-radius: 4px;
+  transition: background .2s, color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* ─── CONTENT WRAPPER ─────────────────────────────────────────────────────────── */
+.content-wrapper {
+  max-width: 768px;
+  margin: 2rem auto;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.05);
+}
+
+/* ─── PAGE TITLES & TEXT ───────────────────────────────────────────────────────── */
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+.intro {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── CARDS & SECTIONS ────────────────────────────────────────────────────────── */
+.card {
+  background: var(--gray);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: .75rem;
+}
+
+/* ─── FORMS ───────────────────────────────────────────────────────────────────── */
+form label {
+  display: block;
+  margin: .75rem 0 .25rem;
+  font-size: .95rem;
+  color: var(--dark);
+}
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number] {
+  width: 100%;
+  padding: .6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: .95rem;
+}
+.checkbox-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.checkbox-group label {
+  font-size: .9rem;
+}
+.checkbox-group input {
+  margin-right: .3rem;
+}
+
+/* ─── CHATBOX ────────────────────────────────────────────────────────────────── */
+#chatbox {
+  background: #f9faff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  height: 160px;
+  overflow-y: auto;
+  border-radius: 6px;
+}
+#chat-input {
+  flex: 1;
+  padding: .6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#send-btn {
+  margin-left: .5rem;
+}
+
+/* ─── LOGIN PAGE OVERRIDES (unchanged) ────────────────────────────────────────── */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.login-background {
+  position: absolute;
+  inset: 0;
+  background: url('https://source.unsplash.com/featured/?sky,city') no-repeat center/cover;
+  opacity: 0.2;
+  filter: blur(3px);
+  transform: scale(1.1);
+}
+.login-wrapper {
+  position: relative;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  width: 360px;
+  padding: 32px;
+  z-index: 1;
+  text-align: center;
+}
+.brand h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  color: var(--dark);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.toggle-switch {
+  position: relative;
+  display: flex;
+  background: var(--gray);
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--dark);
+  cursor: pointer;
+  transition: color .3s;
+  font-weight: 500;
+}
+.toggle-btn.active {
+  color: var(--white);
+}
+.slider {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: var(--light);
+  border-radius: 50px;
+  top: 0; left: 0;
+  transition: left .3s;
+}
+/* When Sign In is active */
+#signin-toggle.active ~ .slider {
+  left: 0;
+}
+/* When Sign Up is active */
+#signup-toggle.active ~ .slider {
+  left: 50%;
+}
+/* Forms inside login */
+.auth-form {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.auth-form label {
+  font-size: .9rem;
+  color: var(--dark);
+}
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: .95rem;
+}
+.checkbox-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.checkbox-group label {
+  font-size: .85rem;
+}
+.checkbox-group input {
+  margin-right: 4px;
+}
+/* Allow scrolling if signup content overflows */
+.login-page {
+  overflow-y: auto;
+}
+
+.login-wrapper {
+  max-height: 90vh;
+  overflow-y: auto;
+}

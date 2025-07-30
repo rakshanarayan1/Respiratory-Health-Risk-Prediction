@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chat & Alerts · Air-Health</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+</head>
+<body class="page">
+  <nav class="top-nav">
+    <div class="logo">Air-Health</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="chatbot.html" class="active">Chat & Alerts</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <main class="content-wrapper">
+    <h1 class="page-title">Chat & Alerts</h1>
+
+    <section class="card">
+      <h2>AI Chatbot</h2>
+      <div id="chatbox">Ask me about your respiratory risk…</div>
+      <div style="display:flex; margin-top:12px;">
+        <input type="text" id="chat-input" placeholder="Type a question…" />
+        <button id="send-btn" class="btn primary" style="margin-left:8px;">Send</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Past Alerts</h2>
+      <ul id="alert-log">
+        <!-- populated by JS -->
+      </ul>
+    </section>
+  </main>
+
+  <script src="assets/js/chatbot.js"></script>
+</body>
+</html>

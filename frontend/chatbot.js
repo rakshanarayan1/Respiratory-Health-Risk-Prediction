@@ -1,55 +1,67 @@
-const chatbox = document.getElementById('chatbox');
-const userInput = document.getElementById('userInput');
+// chatbot.js
+// Drives the Chat & Alerts page
 
-function sendMessage() {
-  const message = userInput.value.trim();
-  if (!message) return;
-
-  // Display user message
-  chatbox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-  userInput.value = '';
-
-  // Send to backend
-  fetch('http://127.0.0.1:5000/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt: message })
-  })
-  .then(res => res.json())
-  .then(data => {
-    const reply = data.reply || data.error || "Something went wrong";
-    chatbox.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
-    chatbox.scrollTop = chatbox.scrollHeight;
-  });
-}
-function checkHealthRisk() {
-  const location = document.getElementById('locationInput').value.trim();
-  const asthma = document.getElementById('asthmaCheck').checked;
-
-  if (!location) {
-    document.getElementById('healthResult').innerText = "Please enter a location.";
+document.addEventListener('DOMContentLoaded', () => {
+  // auth guard
+  if (!sessionStorage.getItem('userEmail')) {
+    window.location.href = 'index.html';
     return;
   }
 
-  fetch("http://127.0.0.1:5000/health-risk", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ location: location, asthma: asthma })
-  })
-  .then(res => res.json())
-  .then(data => {
-    const result = `
-      <strong>Risk Level:</strong> ${data.risk}<br>
-      <strong>Advice:</strong> ${data.advice}<br>
-      <strong>AQI:</strong> ${data.aqi}<br>
-      <strong>Heart Rate:</strong> ${data.wearable.heart_rate} bpm<br>
-      <strong>SpO2:</strong> ${data.wearable.spo2}%<br>
-      <strong>Cough Count:</strong> ${data.wearable.cough_count}
-    `;
-    document.getElementById('healthResult').innerHTML = result;
-  })
-  .catch(err => {
-    document.getElementById('healthResult').innerText = "Error fetching data.";
-    console.error(err);
-  });
+  document.getElementById('send-btn')
+          .addEventListener('click', sendChat);
+
+  loadAlerts();
+});
+
+async function sendChat() {
+  const inputEl = document.getElementById('chat-input');
+  const chatbox = document.getElementById('chatbox');
+  const userText = inputEl.value.trim();
+  if (!userText) return;
+
+  appendMessage('You', userText);
+  inputEl.value = '';
+
+  try {
+    const res = await fetch('http://127.0.0.1:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: userText })
+    });
+    const { reply, error } = await res.json();
+    if (res.ok) {
+      appendMessage('Bot', reply);
+      logAlert(reply);
+    } else {
+      appendMessage('Error', error || 'Something went wrong');
+    }
+  } catch (err) {
+    appendMessage('Error', err.message);
+  }
+}
+
+function appendMessage(sender, text) {
+  const chatbox = document.getElementById('chatbox');
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  chatbox.appendChild(msg);
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+// Simple alert log in localStorage
+function logAlert(text) {
+  const logs = JSON.parse(localStorage.getItem('alertLog') || '[]');
+  logs.unshift({ time: new Date().toLocaleString(), text });
+  localStorage.setItem('alertLog', JSON.stringify(logs));
+  loadAlerts();
+}
+
+function loadAlerts() {
+  const list = document.getElementById('alert-log');
+  const logs = JSON.parse(localStorage.getItem('alertLog') || '[]');
+  list.innerHTML = logs
+    .map(l => `<li><em>${l.time}</em> – ${l.text}</li>`)
+    .join('');
 }
