@@ -366,3 +366,57 @@ button.btn.primary:hover {
   }
 }
 /* === End of Dashboard Enhancements === */
+.home-hero {
+  background: linear-gradient(120deg, #F0F7FF 60%, #e2eafc 100%);
+  padding-bottom: 3rem;
+}
+
+.home-title {
+  text-align: center;
+  color: #1565c0;
+  margin-bottom: .5rem;
+  letter-spacing: .5px;
+  font-size: 2.15rem;
+}
+
+.home-card {
+  margin-bottom: 1.5rem;
+}
+
+.intro-card {
+  font-size: 1.2rem;
+  color: #24416e;
+  padding: 0.9rem 1.5rem;
+  background: #e2eafc;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 1px 6px rgba(105,174,216,0.07);
+}
+
+#aqi-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#aqi-section li {
+  margin: .38rem 0;
+  font-size: 1.09rem;
+}
+
+.custom-list {
+  margin-left: 1.3rem;
+  list-style: disc;
+  color: #314461;
+  line-height: 1.85;
+}
+
+.fast-facts, .contact-help {
+  background: #edfbf6;
+}
+
+@media (max-width: 500px) {
+  .home-title { font-size: 1.25rem; }
+  .intro-card, .home-card { font-size: 1.03rem !important; }
+}
