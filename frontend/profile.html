@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Profile - AirHealth</title>
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
   <nav class="top-nav">
@@ -22,10 +22,10 @@
 
     <form id="profile-form">
       <label for="pName">Full Name</label>
-      <input type="text" id="pName" required>
+      <input type="text" id="pName" required />
 
       <label for="pEmail">Email</label>
-      <input type="email" id="pEmail" disabled>
+      <input type="email" id="pEmail" disabled />
 
       <label for="pGender">Gender</label>
       <select id="pGender" required>
@@ -36,7 +36,10 @@
       </select>
 
       <label for="pLocation">Location</label>
-      <input type="text" id="pLocation" required>
+      <input type="text" id="pLocation" required />
+
+      <label for="pAge">Age</label>
+      <input type="number" id="pAge" min="1" max="120" required />
 
       <label for="pChronicResp">Chronic Respiratory Disease</label>
       <select id="pChronicResp" required>
@@ -70,7 +73,7 @@
 
   <script src="assets/js/profile.js"></script>
   <script>
-    // Logout button handler (optional enhancement)
+    // Logout button handler
     document.getElementById('logout-btn').addEventListener('click', () => {
       localStorage.removeItem('airhealthUser');
       window.location.href = 'index.html';

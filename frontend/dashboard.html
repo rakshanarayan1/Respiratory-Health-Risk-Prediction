@@ -20,26 +20,6 @@
   <div class="container content-wrapper">
     <h1 class="page-title">Health Risk Assessment</h1>
 
-    <!-- Risk Factor Questionnaires -->
-    <div class="health-card">
-      <label for="smoking">Do you smoke?</label>
-      <select id="smoking" name="smoking" required>
-        <option value="">--Select--</option>
-        <option value="never">Never smoked</option>
-        <option value="former">Former smoker</option>
-        <option value="light">Light smoker (1-5/day)</option>
-        <option value="moderate">Moderate smoker (6-15/day)</option>
-        <option value="heavy">Heavy smoker (16+/day)</option>
-      </select>
-      <br><br>
-      <label for="asthma">Do you have asthma?</label>
-      <select id="asthma" name="asthma" required>
-        <option value="">--Select--</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-
     <!-- Wearable Inputs -->
     <div class="health-card">
       <h2>Wearable Data (optional)</h2>
@@ -68,8 +48,6 @@
     <!-- Risk Output -->
     <div id="risk-output" class="risk-status" style="display:none;"></div>
   </div>
-
   <script src="assets/js/dashboard.js"></script>
-  
 </body>
 </html>
